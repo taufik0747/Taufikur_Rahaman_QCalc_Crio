@@ -32,5 +32,20 @@ public class StandardCalculatorTest {
         Assertions.assertEquals(0, actualResult);
     }
 
+    @Test
+    @DisplayName("Test Division of Two Integeres")
+    void testDivisionOperation(){
+        standardCalculator.divide(10, 5);
+        int actualResult=standardCalculator.getResult();
+        Assertions.assertEquals(2, actualResult);
+    }
+    @Test
+    @DisplayName("Test Multiplication of Two Integers")
+    void testMultiplicationOperation(){
+        standardCalculator.multiply(3, 3);
+        int actualResult=standardCalculator.getResult();
+        Assertions.assertEquals(9, actualResult);
+    }
+
 
 }
