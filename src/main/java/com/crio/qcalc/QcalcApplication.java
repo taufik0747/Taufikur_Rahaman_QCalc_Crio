@@ -8,7 +8,8 @@ public class QcalcApplication {
 
 	public static void main(String[] args) {
 		StandardCalculator calc=new StandardCalculator();
-		calc.add(Double.MAX_VALUE, Double.MAX_VALUE);
+		//ScientificCalculator calc=new ScientificCalculator();
+		calc.add(25,25);
 		//SpringApplication.run(QcalcApplication.class, args);
 
 	calc.printResult();
