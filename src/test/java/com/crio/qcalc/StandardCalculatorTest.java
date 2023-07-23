@@ -14,6 +14,28 @@ public class StandardCalculatorTest {
         standardCalculator = new StandardCalculator();
     }
 
+    @Test
+    @DisplayName("Test Multiplication Overflow of Two Doubles")
+    void testMultiplicationOverflowForDoubles(){
+        //Assert
+        Assertions.assertThrows(ArithmeticException.class,new Executable(){
+            @Override
+            public void execute() throws Throwable{
+                standardCalculator.multiply(Double.MAX_VALUE,Double.MAX_VALUE);
+            }
+        });
+    }
+    @Test
+    @DisplayName("Test Multiplication Overflow of Two Doubles in which One is Positive and Other is Negative")
+    void testMultiplicationOverflowForDoublesOnePosOtherNeg(){
+        //Assert
+        Assertions.assertThrows(ArithmeticException.class,new Executable(){
+            @Override
+            public void execute() throws Throwable{
+                standardCalculator.multiply(-Double.MAX_VALUE,Double.MAX_VALUE);
+            }
+        });
+    }
 
     @Test
     @DisplayName("Test Addition Overflow of Two Doubles")
@@ -69,6 +91,34 @@ public class StandardCalculatorTest {
         standardCalculator.subtract(1,1);
         double actualResult = standardCalculator.getResult();
         Assertions.assertEquals(0, actualResult);
+    }
+
+    @Test
+    @DisplayName("Test Division by zero of Two Doubles")
+    void testDivisionByZero(){
+        Assertions.assertThrows(ArithmeticException.class, new Executable() {
+            @Override
+            public void execute() throws Throwable{
+                standardCalculator.divide(10.0, 0.0);
+            }                
+            
+        });      
+    }
+
+    @Test
+    @DisplayName("Test Division of Two Doubles")
+    void testDivisionOperationDoubles(){
+        standardCalculator.divide(2.0, 2.0);
+            double actualResult=standardCalculator.getResult();
+            Assertions.assertEquals(1, actualResult);
+    }
+
+    @Test
+    @DisplayName("Test Division for Integers")
+    void testDivisionOperation(){
+        standardCalculator.divide(9, 3);
+        double actualResult=standardCalculator.getResult();
+        Assertions.assertEquals(3, actualResult);
     }
 
 

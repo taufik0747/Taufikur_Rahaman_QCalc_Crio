@@ -7,12 +7,19 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class QcalcApplication {
 
 	public static void main(String[] args) {
-		StandardCalculator calc=new StandardCalculator();
+		//StandardCalculator calc=new StandardCalculator();
 		//ScientificCalculator calc=new ScientificCalculator();
-		calc.add(25,25);
+		
+		LogicCalculator calc = new LogicCalculator();
+
+		calc.AND(8, 6);
+
+		calc.printResult();
+
+//		calc.add(25,25);
 		//SpringApplication.run(QcalcApplication.class, args);
 
-	calc.printResult();
+//	calc.printResult();
 	}
 
 }
